@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Part 3 – Specificity Detective</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2rem; }
+    /* ====== DO NOT EDIT THESE RULES UNTIL STEP 3 ====== */
+    /* R1 */ p              { color: black; }
+    /* R2 */ .note          { color: green; }
+    /* R3 */ #case p        { color: orange; }
+    /* R4 */ p.note         { color: purple; }
+    /* R5 */ .clue          { color: teal; }
+    /* R6 */ div .clue      { color: brown; }
+    /* R7 */ #case .clue    { color: red; }
+    /* R8 */ .clue          { color: navy; }
+    /* R9 */ #evidence      { color: magenta; }
+    /* R10 */ section p:first-child { color: olive; }
+    /* R11 */ .box          { color: crimson; border: 2px solid crimson; padding: .5rem; }
+    /* ================================================== */
+  </style>
+</head>
+<body>
+  <h1>Specificity Detective</h1>
+
+  <p>E1 – A plain paragraph outside the case file.</p>
+  <p class="note">E2 – A paragraph with class "note".</p>
+
+  <div id="case">
+    <p>E3 – A plain paragraph inside #case.</p>
+    <p class="note">E4 – A note inside #case.</p>
+    <p class="clue">E5 – A clue inside #case.</p>
+    <p class="clue" id="evidence">E6 – The evidence.</p>
+    <p class="clue" style="color: gray;">E7 – A clue with an inline style.</p>
+  </div>
+
+  <span class="clue">E8 – A clue outside the case (a span).</span>
+
+  <section>
+    <p>E9 – First paragraph in a section.</p>
+    <p>E10 – Second paragraph in a section.</p>
+  </section>
+
+  <div class="box">
+    E11 – A box with <em>emphasised text</em> and a <a href="#">link</a>.
+  </div>
+</body>
+</html>

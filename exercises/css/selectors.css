@@ -1,0 +1,36 @@
+/* =========================================================
+   Part 2 – Selector Gym
+   Test ONE challenge at a time: keep the challenge you are working
+   on active and comment the others out with  /* ... */
+   Record each selector and the elements it matched in the worksheet.
+   ========================================================= */
+
+/* S1  All paragraphs (type selector) */
+/* ??? { background-color: yellow; } */
+
+/* S2  Only elements with class "intro" (class selector) */
+
+/* S3  Only the element that has BOTH classes intro and highlight */
+
+/* S4  Only paragraph P6 (id selector) */
+
+/* S5  Only the <li> with class "highlight" – not P3! (type + class) */
+
+/* S6  Only the NESTED list item L3a (descendant combinator) */
+
+/* S7  Every paragraph that comes IMMEDIATELY after an <h2> (adjacent sibling) */
+
+/* S8  Every paragraph that comes AFTER an <h2> at the same level (general sibling)
+       Question: why does it match more than you might expect? */
+
+/* S9  Only links whose href STARTS WITH "https" (attribute selector) */
+
+/* S10 Only links whose href ENDS WITH ".pdf" */
+
+/* S11 Only the email input */
+
+/* S12 Only disabled inputs (pseudo-class) */
+
+/* S13 The FIRST list item in every list (pseudo-class) */
+
+/* S14 Both <h2> headings AND paragraph P6 in one rule (grouping) */

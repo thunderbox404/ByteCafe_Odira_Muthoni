@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Part 2 – Selector Gym</title>
+  <style>
+    /* Helper styles – do not change */
+    body { font-family: Arial, sans-serif; margin: 2rem; line-height: 1.5; }
+    .box { border: 1px dashed #999; padding: 0.75rem 1rem; margin: 1rem 0; }
+    code { background: #eee; padding: 0 4px; }
+  </style>
+  <!-- Write YOUR answers in css/selectors.css -->
+  <link rel="stylesheet" href="css/selectors.css">
+</head>
+<body>
+  <h1>Selector Gym</h1>
+  <p>For each challenge, write ONE rule in <code>css/selectors.css</code> that gives
+     <strong>only</strong> the described elements <code>background-color: yellow</code>.</p>
+
+  <div class="box" id="gym">
+    <h2>Section A</h2>
+    <p class="intro">P1 – intro paragraph</p>
+    <p>P2 – ordinary paragraph</p>
+    <p class="intro highlight">P3 – intro AND highlight</p>
+    <ul>
+      <li>L1 – item</li>
+      <li class="highlight">L2 – highlighted item</li>
+      <li>L3 – item
+        <ul>
+          <li>L3a – nested item</li>
+        </ul>
+      </li>
+    </ul>
+    <h2>Section B</h2>
+    <p>P4 – paragraph straight after the second h2</p>
+    <p>P5 – another paragraph</p>
+    <p id="special">P6 – paragraph with an id</p>
+    <a href="https://developer.mozilla.org">A1 – external https link</a> |
+    <a href="contact.html">A2 – local link</a> |
+    <a href="guide.pdf">A3 – link to a PDF</a>
+    <form>
+      <input type="text" placeholder="I1 – text input">
+      <input type="email" placeholder="I2 – email input">
+      <input type="text" placeholder="I3 – disabled text input" disabled>
+    </form>
+  </div>
+</body>
+</html>

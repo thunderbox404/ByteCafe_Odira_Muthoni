@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Parts 5, 7, 8 &amp; 9 – Layout Playground</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: "Segoe UI", Arial, sans-serif; margin: 0; padding: 1.5rem; background: #f7f7fb; color: #222; }
+    h1 { margin-top: 0; }
+    section { background: #fff; border-radius: 10px; padding: 1rem 1.25rem 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 2px 6px rgba(0,0,0,.08); }
+    .controls { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; margin-bottom: 1rem; }
+    .controls label { display: flex; flex-direction: column; font-size: .8rem; font-weight: 600; color: #555; }
+    .controls select, .controls input { font: inherit; padding: .25rem; min-width: 9rem; }
+    pre { background: #1e1e2e; color: #cde; padding: .75rem 1rem; border-radius: 8px; font-size: .85rem; overflow-x: auto; }
+    .stage { border: 2px dashed #8a8ab5; min-height: 220px; background: repeating-linear-gradient(45deg,#fafaff,#fafaff 10px,#f1f1fa 10px,#f1f1fa 20px); }
+    .item { background: #4f6bed; color: #fff; font-weight: 700; padding: .75rem 1rem; border-radius: 6px; text-align: center; }
+    .item:nth-child(2) { background: #e0567a; }
+    .item:nth-child(3) { background: #2ea66f; }
+    .item:nth-child(4) { background: #f0a020; }
+    .item:nth-child(5) { background: #7b52c7; }
+    .item:nth-child(6) { background: #1f9bb5; }
+    .tall { padding-top: 2rem; padding-bottom: 2rem; }
+
+    /* box model demo */
+    #bm-wrap { background: #fff3c4; display: inline-block; }
+    #bm { background: #a8d1ff; border-style: solid; border-color: #e0567a; }
+    #bm-wrap .note { font-size: .8rem; }
+
+    /* positioning demo */
+    #pos-stage { position: relative; height: 260px; overflow: auto; }
+    #pos-stage .filler { height: 600px; padding: .5rem; color: #888; }
+    #pos-box { width: 140px; background: #e0567a; }
+    .ghost { display: inline-block; width: 140px; }
+  </style>
+</head>
+<body>
+  <h1>Layout Playground</h1>
+  <p>Change the controls and watch the result. The CSS that is being applied is shown under each demo.
+     <strong>Record your observations in the lab worksheet.</strong> You can also inspect each demo with DevTools (F12).</p>
+
+  <!-- ============ BOX MODEL ============ -->
+  <section id="box-model">
+    <h2>A. Box model (Part 5)</h2>
+    <div class="controls">
+      <label>width (px)<input type="number" id="bm-width" value="200"></label>
+      <label>padding (px)<input type="number" id="bm-padding" value="20"></label>
+      <label>border-width (px)<input type="number" id="bm-border" value="5"></label>
+      <label>margin (px)<input type="number" id="bm-margin" value="20"></label>
+      <label>box-sizing
+        <select id="bm-sizing"><option>content-box</option><option>border-box</option></select>
+      </label>
+    </div>
+    <div id="bm-wrap"><div id="bm" class="item">Content</div></div>
+    <p><strong>Rendered width (border edge to border edge): <span id="bm-out"></span> px</strong></p>
+    <pre id="bm-code"></pre>
+  </section>
+
+  <!-- ============ FLEXBOX ============ -->
+  <section id="flexbox">
+    <h2>B. Flexbox (Part 7)</h2>
+    <div class="controls">
+      <label>flex-direction
+        <select id="fx-direction"><option>row</option><option>row-reverse</option><option>column</option><option>column-reverse</option></select></label>
+      <label>justify-content
+        <select id="fx-justify"><option>flex-start</option><option>flex-end</option><option>center</option><option>space-between</option><option>space-around</option><option>space-evenly</option></select></label>
+      <label>align-items
+        <select id="fx-align"><option>stretch</option><option>flex-start</option><option>flex-end</option><option>center</option><option>baseline</option></select></label>
+      <label>flex-wrap
+        <select id="fx-wrap"><option>nowrap</option><option>wrap</option></select></label>
+      <label>gap (px)<input type="number" id="fx-gap" value="10"></label>
+      <label>item 2: flex-grow<input type="number" id="fx-grow" value="0" min="0"></label>
+      <label>number of items<input type="number" id="fx-count" value="3" min="1" max="6"></label>
+    </div>
+    <div class="stage" id="fx-stage"></div>
+    <pre id="fx-code"></pre>
+  </section>
+
+  <!-- ============ GRID ============ -->
+  <section id="grid">
+    <h2>C. Grid (Part 8)</h2>
+    <div class="controls">
+      <label>grid-template-columns
+        <select id="gr-cols">
+          <option>1fr 1fr 1fr</option>
+          <option>1fr 2fr</option>
+          <option>200px 1fr</option>
+          <option>repeat(4, 1fr)</option>
+          <option>repeat(auto-fit, minmax(150px, 1fr))</option>
+        </select></label>
+      <label>gap (px)<input type="number" id="gr-gap" value="10"></label>
+      <label>item 1: grid-column
+        <select id="gr-span"><option>auto</option><option>1 / 3</option><option>1 / -1</option><option>span 2</option></select></label>
+      <label>item 1: grid-row
+        <select id="gr-row"><option>auto</option><option>1 / 3</option><option>span 2</option></select></label>
+    </div>
+    <div class="stage" id="gr-stage"></div>
+    <pre id="gr-code"></pre>
+  </section>
+
+  <!-- ============ POSITIONING ============ -->
+  <section id="positioning">
+    <h2>D. Positioning (Part 9)</h2>
+    <div class="controls">
+      <label>position
+        <select id="ps-position"><option>static</option><option>relative</option><option>absolute</option><option>fixed</option><option>sticky</option></select></label>
+      <label>top (px)<input type="number" id="ps-top" value="20"></label>
+      <label>left (px)<input type="number" id="ps-left" value="40"></label>
+    </div>
+    <p>The dashed box below has <code>position: relative</code>, so it is the containing block for absolute children.
+       Scroll inside it to test <code>sticky</code>.</p>
+    <div class="stage" id="pos-stage">
+      <div class="filler">
+        <span class="item ghost">Before</span>
+        <span class="item" id="pos-box">I move!</span>
+        <span class="item ghost">After</span>
+        <p>…scroll down inside this box…</p>
+      </div>
+    </div>
+    <pre id="ps-code"></pre>
+  </section>
+
+<script>
+  const $ = id => document.getElementById(id);
+
+  function boxModel() {
+    const w = +$('bm-width').value, p = +$('bm-padding').value, b = +$('bm-border').value,
+          m = +$('bm-margin').value, s = $('bm-sizing').value, el = $('bm');
+    Object.assign(el.style, { width: w + 'px', padding: p + 'px', borderWidth: b + 'px', margin: m + 'px', boxSizing: s });
+    $('bm-out').textContent = Math.round(el.getBoundingClientRect().width);
+    $('bm-code').textContent = `.box {\n  box-sizing: ${s};\n  width: ${w}px;\n  padding: ${p}px;\n  border: ${b}px solid;\n  margin: ${m}px;\n}`;
+  }
+
+  function flex() {
+    const st = $('fx-stage'), n = +$('fx-count').value;
+    st.innerHTML = '';
+    for (let i = 1; i <= n; i++) {
+      const d = document.createElement('div');
+      d.className = 'item' + (i === 3 ? ' tall' : '');
+      d.textContent = 'Item ' + i;
+      st.appendChild(d);
+    }
+    const css = { display: 'flex', flexDirection: $('fx-direction').value, justifyContent: $('fx-justify').value,
+                  alignItems: $('fx-align').value, flexWrap: $('fx-wrap').value, gap: $('fx-gap').value + 'px' };
+    Object.assign(st.style, css);
+    const g = +$('fx-grow').value;
+    if (st.children[1]) st.children[1].style.flexGrow = g;
+    $('fx-code').textContent =
+`.container {\n  display: flex;\n  flex-direction: ${css.flexDirection};\n  justify-content: ${css.justifyContent};\n  align-items: ${css.alignItems};\n  flex-wrap: ${css.flexWrap};\n  gap: ${css.gap};\n}\n.item:nth-child(2) {\n  flex-grow: ${g};\n}`;
+  }
+
+  function grid() {
+    const st = $('gr-stage');
+    st.innerHTML = '';
+    for (let i = 1; i <= 6; i++) {
+      const d = document.createElement('div'); d.className = 'item'; d.textContent = 'Item ' + i; st.appendChild(d);
+    }
+    Object.assign(st.style, { display: 'grid', gridTemplateColumns: $('gr-cols').value, gap: $('gr-gap').value + 'px' });
+    st.children[0].style.gridColumn = $('gr-span').value;
+    st.children[0].style.gridRow = $('gr-row').value;
+    $('gr-code').textContent =
+`.container {\n  display: grid;\n  grid-template-columns: ${$('gr-cols').value};\n  gap: ${$('gr-gap').value}px;\n}\n.item:first-child {\n  grid-column: ${$('gr-span').value};\n  grid-row: ${$('gr-row').value};\n}`;
+  }
+
+  function pos() {
+    const b = $('pos-box'), p = $('ps-position').value;
+    Object.assign(b.style, { position: p, top: $('ps-top').value + 'px', left: $('ps-left').value + 'px' });
+    $('ps-code').textContent = `#pos-box {\n  position: ${p};\n  top: ${$('ps-top').value}px;\n  left: ${$('ps-left').value}px;\n}`;
+  }
+
+  document.querySelectorAll('#box-model input, #box-model select').forEach(e => e.addEventListener('input', boxModel));
+  document.querySelectorAll('#flexbox input, #flexbox select').forEach(e => e.addEventListener('input', flex));
+  document.querySelectorAll('#grid input, #grid select').forEach(e => e.addEventListener('input', grid));
+  document.querySelectorAll('#positioning input, #positioning select').forEach(e => e.addEventListener('input', pos));
+  boxModel(); flex(); grid(); pos();
+</script>
+</body>
+</html>

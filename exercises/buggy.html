@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Part 11 – Debug Clinic</title>
+  <meta charset="UTF-8">
+  <!--
+    This page contains 10 deliberate bugs (HTML and CSS) plus 1 best-practice
+    problem in the <head>.
+    The page SHOULD look like this when fixed:
+      - Arial font everywhere, light grey page background
+      - Dark blue h1, UPPERCASE h2 headings
+      - The book list uses star-shaped "★" bullets in orange
+      - Card titles are bold and green
+      - Contact form: labels in a left column, inputs in a right column (grid)
+      - Clicking the "Email" label puts the cursor in the email box
+      - The "Send" button turns deepskyblue on hover
+    Find each bug, fix it, and record it in the worksheet (line, bug, fix, how you found it).
+  -->
+  <style>
+    body {
+      font-family: Arial, sans-serif
+      background-color: #f2f2f2;
+    }
+
+    h1 {
+      colour: darkblue;
+    }
+
+    h2 {
+      text-transform: upper-case;
+    }
+
+    ol.books li::marker {
+      content: "★ ";
+      color: orange;
+    }
+
+    .card-title {
+      font-weight: bold;
+      color: green;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 12 px;
+      max-width: 500px;
+    }
+
+    label {
+      grid-column: 1 / 2;
+      text-align: right;
+    }
+
+    input,
+    button {
+      grid-column: 2 / 3;
+    }
+
+    button:hoover {
+      background-color: deepskyblue;
+    }
+
+    #Contact {
+      border: 1px solid #ccc;
+      padding: 1rem;
+    }
+  <style>
+</head>
+<body>
+  <h1>Debug Clinic</h1>
+
+  <h2>My reading list</h2>
+  <ul class="books">
+    <li>CSS in Depth</li>
+    <li>CSS: The Definitive Guide</li>
+    <li>CSS Secrets</li>
+  </ul>
+
+  <h2>Featured</h2>
+  <div class="card">
+    <h3 class="card-tittle">Learning Grid Layout</h3>
+    <p>Two-dimensional layouts made simple.</p>
+  </div>
+
+  <h2>Contact us</h2>
+  <form id="contact">
+    <label for="fullname">Name</label>
+    <input id="fullname" type="text">
+
+    <label for="mail">Email</label>
+    <input id="email" type="email">
+
+    <button>Send</button>
+  </form>
+</body>
+</html>

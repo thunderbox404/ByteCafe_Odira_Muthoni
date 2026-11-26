@@ -1,0 +1,51 @@
+/* =====================================================================
+   The Byte Café – Team stylesheet
+   Team members (Driver / Navigator):
+     1. ______________________   2. ______________________
+   Write your CSS in the sections below. Keep the comments!
+   Add a short comment above every rule explaining WHY you wrote it.
+   ===================================================================== */
+
+/* ---------- PART 4: Custom properties (colours, radius) ---------- */
+:root {
+  /* e.g. --brown: #6b3e26; */
+}
+
+/* ---------- PART 5: Box model reset ---------- */
+
+
+/* ---------- PART 4: Typography & colour (body, headings, links) ---------- */
+
+
+/* ---------- PART 7 & 9: Header (flexbox + sticky) ---------- */
+
+
+/* ---------- PART 6 & 7: Navigation list ---------- */
+
+
+/* ---------- Hero & buttons ---------- */
+
+
+/* ---------- Main sections ---------- */
+
+
+/* ---------- PART 8: Cards (grid) ---------- */
+
+
+/* ---------- PART 5 & 9: Card box model + badge ---------- */
+
+
+/* ---------- PART 6: Menu table ---------- */
+
+
+/* ---------- PART 6: Lists ---------- */
+
+
+/* ---------- PART 8: Booking form (grid) ---------- */
+
+
+/* ---------- Footer ---------- */
+
+
+/* ---------- PART 10: Responsive design ---------- */
+/* @media (max-width: 640px) { ... } */
